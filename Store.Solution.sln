@@ -3,17 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Presentation", "Store.UI\Store.Presentation.csproj", "{A9CBE6D0-2BBB-40E1-9A86-F60D9D969625}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Presentation", "Store.UI\Store.Presentation.csproj", "{A9CBE6D0-2BBB-40E1-9A86-F60D9D969625}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Application", "Store.Interfaces\Store.Application.csproj", "{80733477-2CE6-48F5-95E9-FFA7548B15E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Application", "Store.Interfaces\Store.Application.csproj", "{80733477-2CE6-48F5-95E9-FFA7548B15E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Infrastructure", "Store.Services\Store.Infrastructure.csproj", "{A9DD97B5-5C3D-4B35-9A5E-64A18E9AB9F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infrastructure", "Store.Services\Store.Infrastructure.csproj", "{A9DD97B5-5C3D-4B35-9A5E-64A18E9AB9F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Domain", "Store.Models\Store.Domain.csproj", "{6B5D375C-936D-4847-80F3-0A6198DE44AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Domain", "Store.Models\Store.Domain.csproj", "{6B5D375C-936D-4847-80F3-0A6198DE44AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Persistance", "Store.Entities\Store.Persistance.csproj", "{C51CDB64-4C5E-4557-AAEF-A4B990151A3A}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Store.Database", "Store.Database\Store.Database.sqlproj", "{A7DF8869-2D38-45E2-93F2-A91B8964DE75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Persistance", "Store.Entities\Store.Persistance.csproj", "{C51CDB64-4C5E-4557-AAEF-A4B990151A3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +39,6 @@ Global
 		{C51CDB64-4C5E-4557-AAEF-A4B990151A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C51CDB64-4C5E-4557-AAEF-A4B990151A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C51CDB64-4C5E-4557-AAEF-A4B990151A3A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7DF8869-2D38-45E2-93F2-A91B8964DE75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7DF8869-2D38-45E2-93F2-A91B8964DE75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7DF8869-2D38-45E2-93F2-A91B8964DE75}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{A7DF8869-2D38-45E2-93F2-A91B8964DE75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7DF8869-2D38-45E2-93F2-A91B8964DE75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7DF8869-2D38-45E2-93F2-A91B8964DE75}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
