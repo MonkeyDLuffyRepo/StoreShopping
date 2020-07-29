@@ -4,14 +4,13 @@ using System.Collections.Generic;
 
 namespace Store.Persistance.Entities
 {
-    public partial class PersonType
+    public partial class PersonType : EntityBase
     {
         public PersonType()
         {
             People = new HashSet<Person>();
         }
 
-        public int Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<Person> People { get; set; }

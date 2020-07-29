@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 namespace Store.Persistance.Entities
 {
-    public partial class Person
+
+    public partial class Person : EntityBase
     {
         public Person()
         {
@@ -13,7 +14,7 @@ namespace Store.Persistance.Entities
             Products = new HashSet<Product>();
         }
 
-        public long Id { get; set; }
+      
         public string Email { get; set; }
         public byte[] Password { get; set; }
         public string PhoneNumber { get; set; }
@@ -21,8 +22,6 @@ namespace Store.Persistance.Entities
         public string LastName { get; set; }
         public string DiplayName { get; set; }
         public int? PersonTypeId { get; set; }
-        public DateTime? CreationDate { get; set; }
-        public DateTime? ModificationDate { get; set; }
         public string StoragePath { get; set; }
 
         public virtual PersonType PersonType { get; set; }

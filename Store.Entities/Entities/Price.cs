@@ -4,10 +4,9 @@ using System.Collections.Generic;
 
 namespace Store.Persistance.Entities
 {
-    public partial class Price
+    public partial class Price : EntityBase
     {
-        public long Id { get; set; }
-        public DateTime? CreationDate { get; set; }
+    
         public double? Amount { get; set; }
         public int? CurrencyId { get; set; }
         public long? ProductId { get; set; }

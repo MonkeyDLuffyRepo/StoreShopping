@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 namespace Store.Persistance.Entities
 {
-    public partial class Role
+    
+    public partial class Role : EntityBase
     {
         public Role()
         {

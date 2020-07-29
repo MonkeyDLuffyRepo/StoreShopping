@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace Store.Persistance.Entities
 {
-    public partial class ProductType
+  
+    public partial class ProductType : EntityBase
     {
         public ProductType()
         {
             Products = new HashSet<Product>();
         }
 
-        public int Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }

@@ -4,17 +4,14 @@ using System.Collections.Generic;
 
 namespace Store.Persistance.Entities
 {
-    public partial class Addresse
+    public partial class Addresse : EntityBase
     {
-        public long Id { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
         public string ZipCode { get; set; }
         public string StreetOne { get; set; }
         public string StreetTwo { get; set; }
         public long? PersonId { get; set; }
-        public DateTime? CreationDate { get; set; }
-        public DateTime? ModificationDate { get; set; }
 
         public virtual Person Person { get; set; }
     }

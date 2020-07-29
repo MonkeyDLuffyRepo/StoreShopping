@@ -4,16 +4,14 @@ using System.Collections.Generic;
 
 namespace Store.Persistance.Entities
 {
-    public partial class Product
+    public partial class Product : EntityBase
     {
         public Product()
         {
             Prices = new HashSet<Price>();
         }
 
-        public long Id { get; set; }
         public string Name { get; set; }
-        public DateTime? CreationDate { get; set; }
         public DateTime? ModiicationDate { get; set; }
         public int? ProductTypeId { get; set; }
         public int? Quality { get; set; }

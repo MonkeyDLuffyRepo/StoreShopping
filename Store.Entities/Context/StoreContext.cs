@@ -3,17 +3,17 @@ using Store.Persistance.Entities;
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Store.Persistance.Entities;
+
 
 namespace Store.Persistance.Context
 {
-    public partial class STORESContext : DbContext
+    public partial class StoreContext : DbContext
     {
-        public STORESContext()
+        public StoreContext()
         {
         }
 
-        public STORESContext(DbContextOptions<STORESContext> options)
+        public StoreContext(DbContextOptions<StoreContext> options)
             : base(options)
         {
         }

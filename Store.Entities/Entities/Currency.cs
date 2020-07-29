@@ -4,16 +4,14 @@ using System.Collections.Generic;
 
 namespace Store.Persistance.Entities
 {
-    public partial class Currency
+    public partial class Currency : EntityBase
     {
         public Currency()
         {
             Prices = new HashSet<Price>();
         }
 
-        public int Id { get; set; }
         public string Name { get; set; }
-
         public virtual ICollection<Price> Prices { get; set; }
     }
 }

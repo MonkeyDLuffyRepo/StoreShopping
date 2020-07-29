@@ -9,7 +9,7 @@ using Store.Persistance.Context;
 
 namespace Store.Persistance.Migrations
 {
-    [DbContext(typeof(STORESContext))]
+    [DbContext(typeof(StoreContext))]
     [Migration("20200721220643_InitialMigration")]
     partial class InitialMigration
     {

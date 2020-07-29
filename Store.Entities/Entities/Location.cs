@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace Store.Persistance.Entities
 {
-    public partial class Location
+    public partial class Location : EntityBase
     {
-        public string Id { get; set; }
+     
     }
 }

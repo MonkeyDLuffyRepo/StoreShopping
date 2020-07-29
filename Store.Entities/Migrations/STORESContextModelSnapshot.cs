@@ -8,7 +8,7 @@ using Store.Persistance.Context;
 
 namespace Store.Persistance.Migrations
 {
-    [DbContext(typeof(STORESContext))]
+    [DbContext(typeof(StoreContext))]
     partial class STORESContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
