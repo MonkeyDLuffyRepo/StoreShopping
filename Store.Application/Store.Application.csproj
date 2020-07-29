@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interaces\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Store.Entities\Store.Persistance.csproj" />
+    <ProjectReference Include="..\Store.Models\Store.Domain.csproj" />
+    <ProjectReference Include="..\Store.Services\Store.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

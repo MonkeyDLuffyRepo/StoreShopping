@@ -11,8 +11,6 @@ namespace Store.Persistance.Entities
         {
             PersonRoles = new HashSet<PersonRole>();
         }
-
-        public int Id { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<PersonRole> PersonRoles { get; set; }

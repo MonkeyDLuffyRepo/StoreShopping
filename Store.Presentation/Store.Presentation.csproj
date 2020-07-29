@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Store.Entities\Store.Persistance.csproj" />
+    <ProjectReference Include="..\Store.Interfaces\Store.Application.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
