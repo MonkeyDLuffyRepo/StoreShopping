@@ -1,9 +1,0 @@
-C:\Users\Mohammed\source\repos\Store.UI\Store.Services\bin\Debug\netcoreapp3.1\Store.Infrastructure.deps.json
-C:\Users\Mohammed\source\repos\Store.UI\Store.Services\bin\Debug\netcoreapp3.1\Store.Infrastructure.dll
-C:\Users\Mohammed\source\repos\Store.UI\Store.Services\bin\Debug\netcoreapp3.1\Store.Infrastructure.pdb
-C:\Users\Mohammed\source\repos\Store.UI\Store.Services\obj\Debug\netcoreapp3.1\Store.Infrastructure.csprojAssemblyReference.cache
-C:\Users\Mohammed\source\repos\Store.UI\Store.Services\obj\Debug\netcoreapp3.1\Store.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\Mohammed\source\repos\Store.UI\Store.Services\obj\Debug\netcoreapp3.1\Store.Infrastructure.AssemblyInfo.cs
-C:\Users\Mohammed\source\repos\Store.UI\Store.Services\obj\Debug\netcoreapp3.1\Store.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Users\Mohammed\source\repos\Store.UI\Store.Services\obj\Debug\netcoreapp3.1\Store.Infrastructure.dll
-C:\Users\Mohammed\source\repos\Store.UI\Store.Services\obj\Debug\netcoreapp3.1\Store.Infrastructure.pdb
