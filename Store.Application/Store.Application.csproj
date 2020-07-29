@@ -10,9 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Store.Entities\Store.Persistance.csproj" />
-    <ProjectReference Include="..\Store.Models\Store.Domain.csproj" />
-    <ProjectReference Include="..\Store.Services\Store.Infrastructure.csproj" />
+    <ProjectReference Include="..\Store.Persistance\Store.Persistance.csproj" />
+    <ProjectReference Include="..\Store.Domain\Store.Domain.csproj" />
+    <ProjectReference Include="..\Store.Infrastructure\Store.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
