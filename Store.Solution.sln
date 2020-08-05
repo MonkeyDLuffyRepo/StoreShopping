@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infrastructure", "Sto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Domain", "Store.Domain\Store.Domain.csproj", "{6B5D375C-936D-4847-80F3-0A6198DE44AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Persistance", "Store.Persistance\Store.Persistance.csproj", "{DB76DAA8-A25E-4875-9D58-CF7D9BBCED39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Persistance", "Store.Persistance\Store.Persistance.csproj", "{DB76DAA8-A25E-4875-9D58-CF7D9BBCED39}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Srore.DatabaseSchema", "Srore.DatabaseSchema\Srore.DatabaseSchema.sqlproj", "{9E199313-B445-4111-8BFB-CC16FF90069B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,12 @@ Global
 		{DB76DAA8-A25E-4875-9D58-CF7D9BBCED39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB76DAA8-A25E-4875-9D58-CF7D9BBCED39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB76DAA8-A25E-4875-9D58-CF7D9BBCED39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E199313-B445-4111-8BFB-CC16FF90069B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E199313-B445-4111-8BFB-CC16FF90069B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E199313-B445-4111-8BFB-CC16FF90069B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9E199313-B445-4111-8BFB-CC16FF90069B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E199313-B445-4111-8BFB-CC16FF90069B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E199313-B445-4111-8BFB-CC16FF90069B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
