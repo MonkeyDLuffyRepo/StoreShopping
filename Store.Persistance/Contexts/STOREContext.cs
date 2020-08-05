@@ -26,6 +26,7 @@ namespace Store.Persistance.Contexts
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Station> Stations { get; set; }
         public virtual DbSet<Vehicule> Vehicules { get; set; }
+        public virtual DbSet<VehiculeState> VehiculeStates { get; set; }
         public virtual DbSet<VehiculeType> VehiculeTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -197,6 +198,23 @@ namespace Store.Persistance.Contexts
                     .WithMany(p => p.Vehicules)
                     .HasForeignKey(d => d.TypeId)
                     .HasConstraintName("FK_Vehicule_VehiculeType");
+            });
+
+            modelBuilder.Entity<VehiculeState>(entity =>
+            {
+                entity.ToTable("VehiculeState");
+
+                entity.Property(e => e.CreationDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Latitude).HasColumnType("decimal(15, 10)");
+
+                entity.Property(e => e.Longitude).HasColumnType("decimal(15, 10)");
+
+                entity.HasOne(d => d.Vehicule)
+                    .WithMany(p => p.VehiculeStates)
+                    .HasForeignKey(d => d.VehiculeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_VehiculeState_Vehicule");
             });
 
             modelBuilder.Entity<VehiculeType>(entity =>

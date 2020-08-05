@@ -58,6 +58,16 @@ namespace Store.Application.Services
 
             return entity;
         }
+        public T AddState<T>(T entity) where T : VehiculeStateModel
+        {
+            var newEntity = _mapper.Map<VehiculeState>(entity);
+            newEntity.CreationDate = DateTime.Now;
+
+            _context.VehiculeStates.Add(newEntity);
+            _context.SaveChanges();
+
+            return entity;
+        }
         public T Update<T>(T entity) where T : VehiculeModel
         {
             if (entity is null || entity.Id.Equals(0)) return null;

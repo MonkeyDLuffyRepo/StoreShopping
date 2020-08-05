@@ -34,4 +34,19 @@ namespace Store.Domain.VehiculeDomain
         [JsonProperty("description")]
         public string Description { get; set; }
     }
+    public class VehiculeStateModel
+    {
+        [JsonProperty("id")]
+        public int Id { get; set; }
+        [JsonProperty("vehiculeId")]
+        public int VehiculeId { get; set; }
+        [JsonProperty("occupedSeat")]
+        public int? OccupedSeat { get; set; }
+        [JsonProperty("capasitySeat")]
+        public int? CapasitySeat { get; set; }
+        [JsonProperty("longitude")]
+        public decimal? Longitude { get; set; }
+        [JsonProperty("latitude")]
+        public decimal? Latitude { get; set; }
+    }
 }

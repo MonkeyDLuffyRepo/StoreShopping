@@ -10,8 +10,9 @@ namespace Store.Persistance.Entities
         {
             PersonVehicules = new HashSet<PersonVehicule>();
             Positions = new HashSet<Position>();
+            VehiculeStates = new HashSet<VehiculeState>();
         }
-      
+
         public int Id { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? ModificationDate { get; set; }
@@ -29,5 +30,6 @@ namespace Store.Persistance.Entities
         public virtual VehiculeType Type { get; set; }
         public virtual ICollection<PersonVehicule> PersonVehicules { get; set; }
         public virtual ICollection<Position> Positions { get; set; }
+        public virtual ICollection<VehiculeState> VehiculeStates { get; set; }
     }
 }

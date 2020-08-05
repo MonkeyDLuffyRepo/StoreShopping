@@ -14,6 +14,7 @@ namespace Store.Application.Interaces
         IEnumerable<T> GetByCriteria<T, C>(C criteria) where T : VehiculeModel where C : ICriteriaBaseModel<Vehicule>;
         T GetById<T>(int id) where T : VehiculeModel;
         T Add<T>(T entity) where T : VehiculeModel;
+        T AddState<T>(T entity) where T : VehiculeStateModel;
         T Update<T>(T entity) where T : VehiculeModel;
         int Delete(int id);
     }

@@ -46,6 +46,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[VehiculeState]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[VehiculeType]"
       }
    ],

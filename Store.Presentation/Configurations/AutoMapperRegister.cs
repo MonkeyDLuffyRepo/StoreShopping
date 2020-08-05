@@ -150,6 +150,9 @@ namespace Store.Presentation.Configurations
             CreateMap<Vehicule, VehiculeModel>()
                      .ReverseMap()
                      ;
+            CreateMap<VehiculeState, VehiculeStateModel>()
+                     .ReverseMap()
+                     ;
             #endregion
 
             #region Station_Mapping
