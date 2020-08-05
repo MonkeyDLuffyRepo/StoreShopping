@@ -1,0 +1,59 @@
+﻿{
+   "ContextClassName": "STOREContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "DoNotCombineNamespace": false,
+   "IdReplace": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Contexts",
+   "OutputPath": "Entities",
+   "ProjectRootNamespace": "Store.Persistance",
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Address]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Person]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[PersonRole]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[PersonStatus]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[PersonVehicule]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Position]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Station]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Vehicule]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[VehiculeType]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseSpatial": false
+}

@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using Store.Persistance.Contexts;
 
 namespace Store.UI
 {
@@ -23,8 +24,8 @@ namespace Store.UI
         public void ConfigureServices(IServiceCollection services)
         {
             // Register the context for Sql Server
-            //services.AddDbContext<StoreContext>(options =>
-            //         options.UseSqlServer(Configuration.GetConnectionString("StoreConnection")));
+            services.AddDbContext<STOREContext>(options =>
+                     options.UseSqlServer(Configuration.GetConnectionString("StoreConnection")));
             //Web API Controllers to Services Collection;
             services.AddControllers();
             // In production, the Angular files will be served from this directory
@@ -32,6 +33,9 @@ namespace Store.UI
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            //Register AutoMapper 
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
