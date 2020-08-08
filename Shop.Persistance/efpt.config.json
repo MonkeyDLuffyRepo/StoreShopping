@@ -54,7 +54,7 @@
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[Store]"
+         "Name": "[dbo].[ShopStore]"
       },
       {
          "HasPrimaryKey": true,

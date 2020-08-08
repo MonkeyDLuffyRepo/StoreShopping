@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace Shop.Application.Domains
+namespace Shop.Persistance.Entities
 {
-    public partial class StoreModel
+    public partial class ShopStore
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -28,7 +28,7 @@ namespace Shop.Persistance.Contexts
         public virtual DbSet<PanierProduct> PanierProducts { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Region> Regions { get; set; }
-        public virtual DbSet<Store> Stores { get; set; }
+        public virtual DbSet<ShopStore> ShopStores { get; set; }
         public virtual DbSet<Taste> Tastes { get; set; }
         public virtual DbSet<Vintage> Vintages { get; set; }
         public virtual DbSet<Volume> Volumes { get; set; }
@@ -247,9 +247,9 @@ namespace Shop.Persistance.Contexts
                     .HasMaxLength(30);
             });
 
-            modelBuilder.Entity<Store>(entity =>
+            modelBuilder.Entity<ShopStore>(entity =>
             {
-                entity.ToTable("Store");
+                entity.ToTable("ShopStore");
 
                 entity.Property(e => e.Email).HasMaxLength(100);
 
