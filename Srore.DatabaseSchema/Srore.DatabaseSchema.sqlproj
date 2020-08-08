@@ -70,5 +70,19 @@
     <Build Include="dbo\Tables\PersonRole.sql" />
     <Build Include="dbo\Tables\Person.sql" />
     <Build Include="dbo\Tables\Address.sql" />
+    <Build Include="dbo\Tables\Volume.sql" />
+    <Build Include="dbo\Tables\Vintage.sql" />
+    <Build Include="dbo\Tables\Type.sql" />
+    <Build Include="dbo\Tables\Taste.sql" />
+    <Build Include="dbo\Tables\Store.sql" />
+    <Build Include="dbo\Tables\Region.sql" />
+    <Build Include="dbo\Tables\Product.sql" />
+    <Build Include="dbo\Tables\PanierProduct.sql" />
+    <Build Include="dbo\Tables\Panier.sql" />
+    <Build Include="dbo\Tables\Customer.sql" />
+    <Build Include="dbo\Tables\Country.sql" />
+    <Build Include="dbo\Tables\Conservation.sql" />
+    <Build Include="dbo\Tables\Color.sql" />
+    <Build Include="dbo\Tables\Category.sql" />
   </ItemGroup>
 </Project>

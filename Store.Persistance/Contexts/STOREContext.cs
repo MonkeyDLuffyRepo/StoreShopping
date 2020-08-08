@@ -110,7 +110,7 @@ namespace Store.Persistance.Contexts
 
             modelBuilder.Entity<PersonVehicule>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.PersonId, e.VehiculeId, e.RoleId });
 
                 entity.ToTable("PersonVehicule");
 

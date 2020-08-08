@@ -1,0 +1,79 @@
+﻿{
+   "ContextClassName": "ShopContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "DoNotCombineNamespace": false,
+   "IdReplace": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Contexts",
+   "OutputPath": "Entities",
+   "ProjectRootNamespace": "Shop.Persistance",
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Category]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Color]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Conservation]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Country]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Customer]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Originality]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Panier]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[PanierProduct]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Product]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Region]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Store]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Taste]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Vintage]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Volume]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseSpatial": false
+}
