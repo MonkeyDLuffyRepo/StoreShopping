@@ -12,7 +12,7 @@
     [PicturesPath]     NVARCHAR (150)  NULL,
     [ColorId]          INT             NULL,
     [VintageId]        INT             NULL,
-    [TypeId]           INT             NULL,
+    [OriginalityId]    INT             NULL,
     [RegionId]         INT             NULL,
     [CountryId]        INT             NULL,
     [VolumeId]         INT             NULL,
@@ -23,10 +23,12 @@
     CONSTRAINT [FK_Product_Color] FOREIGN KEY ([ColorId]) REFERENCES [dbo].[Color] ([Id]),
     CONSTRAINT [FK_Product_Conservation] FOREIGN KEY ([ConservationId]) REFERENCES [dbo].[Conservation] ([Id]),
     CONSTRAINT [FK_Product_Country] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Country] ([Id]),
+    CONSTRAINT [FK_Product_Originality] FOREIGN KEY ([OriginalityId]) REFERENCES [dbo].[Originality] ([Id]),
     CONSTRAINT [FK_Product_Region] FOREIGN KEY ([RegionId]) REFERENCES [dbo].[Region] ([Id]),
     CONSTRAINT [FK_Product_Taste] FOREIGN KEY ([TasteId]) REFERENCES [dbo].[Taste] ([Id]),
-    CONSTRAINT [FK_Product_Type] FOREIGN KEY ([TypeId]) REFERENCES [dbo].[Type] ([Id]),
     CONSTRAINT [FK_Product_Vintage] FOREIGN KEY ([VintageId]) REFERENCES [dbo].[Vintage] ([Id]),
     CONSTRAINT [FK_Product_Volume] FOREIGN KEY ([VolumeId]) REFERENCES [dbo].[Volume] ([Id])
 );
+
+
 
