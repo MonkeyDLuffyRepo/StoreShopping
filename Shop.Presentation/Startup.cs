@@ -1,10 +1,13 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Shop.Persistance.Contexts;
 
 namespace Shop.Presentation
 {
@@ -26,6 +29,14 @@ namespace Shop.Presentation
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            // Register the context for Sql Server
+            services.AddDbContext<ShopContext>(options =>
+                     options.UseSqlServer(Configuration.GetConnectionString("ShopConnection")));
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen();
+            //Register AutoMapper 
+            services.AddAutoMapper(typeof(Startup));
+            //Register Logic Services
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
