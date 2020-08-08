@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.Application.Interaces
+namespace Shop.Application.Interfaces
 {
    public interface IProductService
     {
