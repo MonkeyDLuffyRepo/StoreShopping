@@ -7,7 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Shop.Application.Interfaces;
 using Shop.Persistance.Contexts;
+using Store.API.Application.Services;
 
 namespace Shop.Presentation
 {
@@ -37,6 +39,11 @@ namespace Shop.Presentation
             //Register AutoMapper 
             services.AddAutoMapper(typeof(Startup));
             //Register Logic Services
+            //Register Logic Services
+            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<IPanierService, PanierService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IShopStoreService, ShopStoreService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
