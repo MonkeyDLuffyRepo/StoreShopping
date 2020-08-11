@@ -66,7 +66,7 @@ namespace Shop.Presentation.Configurations
             #endregion
 
             #region Store_Mapping
-            CreateMap<Store, StoreModel>()
+            CreateMap<ShopStore, ShopStoreModel>()
                       .ReverseMap()
                       ;
             #endregion

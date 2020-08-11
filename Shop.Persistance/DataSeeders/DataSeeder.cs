@@ -16,18 +16,12 @@ namespace Shop.Persistance.DataSeeders
             {
                 var entities = new List<Country>
             {
-                new Country { Name = "Afghanistan" },
-                new Country { Name = "Albania" },
-                new Country { Name = "Algeria" },
-                new Country { Name = "Andorra" },
-                new Country { Name = "Angola" },
-                new Country { Name = "Antigua and Barbuda" },
-                new Country { Name = "Argentina" },
-                new Country { Name = "Armenia" },
-                new Country { Name = "Aruba" },
-                new Country { Name = "Australia" },
-                new Country { Name = "Austria" },
-                new Country { Name = "Azerbaijan" },
+                new Country { Name = "France" },
+                new Country { Name = "Maroc" },
+                new Country { Name = "Italie" },
+                new Country { Name = "Portugal" },
+                new Country { Name = "Espagne" },
+                new Country { Name = "Autre" },
             };
                 context.AddRange(entities);
                 context.SaveChanges();
@@ -39,12 +33,11 @@ namespace Shop.Persistance.DataSeeders
             {
                 var entities = new List<Color>
             {
-                new Color { Name = "Afghanistan" },
-                new Color { Name = "Albania" },
-                new Color { Name = "Algeria" },
-                new Color { Name = "Andorra" },
-                new Color { Name = "Angola" },
-                
+                new Color { Name = "Blanc" },
+                new Color { Name = "Jaune" },
+                new Color { Name = "Rouge" },
+                new Color { Name = "Rosé" },
+                new Color { Name = "Gris" },
             };
                 context.AddRange(entities);
                 context.SaveChanges();
@@ -56,8 +49,8 @@ namespace Shop.Persistance.DataSeeders
             {
                 var entities = new List<Conservation>
             {
-                new Conservation { Name = "Afghanistan" },
-                new Conservation { Name = "Albania" },
+                new Conservation { Name = "Prêt à boire" },
+                new Conservation { Name = "Peut être conservé" },
                 new Conservation { Name = "Algeria" },
                 new Conservation { Name = "Andorra" },
                 new Conservation { Name = "Angola" },
@@ -79,18 +72,10 @@ namespace Shop.Persistance.DataSeeders
             {
                 var entities = new List<Category>
             {
-                new Category { Name = "Afghanistan" },
-                new Category { Name = "Albania" },
-                new Category { Name = "Algeria" },
-                new Category { Name = "Andorra" },
-                new Category { Name = "Angola" },
-                new Category { Name = "Antigua and Barbuda" },
-                new Category { Name = "Argentina" },
-                new Category { Name = "Armenia" },
-                new Category { Name = "Aruba" },
-                new Category { Name = "Australia" },
-                new Category { Name = "Austria" },
-                new Category { Name = "Azerbaijan" },
+                new Category { Name = "Vin" },
+                new Category { Name = "Champagnes" },
+                new Category { Name = "Spiritueux" },
+                new Category { Name = "Bières" },
             };
                 context.AddRange(entities);
                 context.SaveChanges();
@@ -102,18 +87,10 @@ namespace Shop.Persistance.DataSeeders
             {
                 var entities = new List<Originality>
             {
-                new Originality { Name = "Afghanistan" },
-                new Originality { Name = "Albania" },
-                new Originality { Name = "Algeria" },
-                new Originality { Name = "Andorra" },
-                new Originality { Name = "Angola" },
-                new Originality { Name = "Antigua and Barbuda" },
-                new Originality { Name = "Argentina" },
-                new Originality { Name = "Armenia" },
-                new Originality { Name = "Aruba" },
-                new Originality { Name = "Australia" },
-                new Originality { Name = "Austria" },
-                new Originality { Name = "Azerbaijan" },
+                new Originality { Name = "importées" },
+                new Originality { Name = "locales" },
+                new Originality { Name = "étrangères" },
+               
             };
                 context.AddRange(entities);
                 context.SaveChanges();
@@ -125,18 +102,17 @@ namespace Shop.Persistance.DataSeeders
             {
                 var entities = new List<Region>
             {
-                new Region { Name = "Afghanistan" },
-                new Region { Name = "Albania" },
-                new Region { Name = "Algeria" },
-                new Region { Name = "Andorra" },
-                new Region { Name = "Angola" },
-                new Region { Name = "Antigua and Barbuda" },
-                new Region { Name = "Argentina" },
-                new Region { Name = "Armenia" },
-                new Region { Name = "Aruba" },
-                new Region { Name = "Australia" },
-                new Region { Name = "Austria" },
-                new Region { Name = "Azerbaijan" },
+                new Region { Name = "Bourgogne" },
+                new Region { Name = "Loire et Centre" },
+                new Region { Name = "Bordeaux" },
+                new Region { Name = "Provence" },
+                new Region { Name = "Languedoc-Roussillon" },
+                new Region { Name = "Rhône" },
+                new Region { Name = "Ouled Thaleb" },
+                new Region { Name = "Sud-Ouest" },
+                new Region { Name = "Meknès" },
+                new Region { Name = "Côtes du Rhône" },
+                new Region { Name = "Autre" },
             };
                 context.AddRange(entities);
                 context.SaveChanges();
@@ -148,18 +124,15 @@ namespace Shop.Persistance.DataSeeders
             {
                 var entities = new List<Taste>
             {
-                new Taste { Name = "Afghanistan" },
-                new Taste { Name = "Albania" },
-                new Taste { Name = "Algeria" },
-                new Taste { Name = "Andorra" },
-                new Taste { Name = "Angola" },
-                new Taste { Name = "Antigua and Barbuda" },
-                new Taste { Name = "Argentina" },
-                new Taste { Name = "Armenia" },
-                new Taste { Name = "Aruba" },
-                new Taste { Name = "Australia" },
-                new Taste { Name = "Austria" },
-                new Taste { Name = "Azerbaijan" },
+                new Taste { Name = "Fruité et plein" },
+                new Taste { Name = "Fruité et souple" },
+                new Taste { Name = "Fruité et nerveux" },
+                new Taste { Name = "Bouqueté et à la reserve" },
+                new Taste { Name = "Bouqueté et souple" },
+                new Taste { Name = "Bouqueté corse et à point" },
+                new Taste { Name = "Bouqueté et corsé à point" },
+                new Taste { Name = "Fruité et soyeux" },
+                new Taste { Name = "Rond et bouqueté" },
             };
                 context.AddRange(entities);
                 context.SaveChanges();
@@ -171,18 +144,17 @@ namespace Shop.Persistance.DataSeeders
             {
                 var entities = new List<Vintage>
             {
-                new Vintage { Name = "Afghanistan" },
-                new Vintage { Name = "Albania" },
-                new Vintage { Name = "Algeria" },
-                new Vintage { Name = "Andorra" },
-                new Vintage { Name = "Angola" },
-                new Vintage { Name = "Antigua and Barbuda" },
-                new Vintage { Name = "Argentina" },
-                new Vintage { Name = "Armenia" },
-                new Vintage { Name = "Aruba" },
-                new Vintage { Name = "Australia" },
-                new Vintage { Name = "Austria" },
-                new Vintage { Name = "Azerbaijan" },
+                new Vintage { Name = "2010" },
+                new Vintage { Name = "2011" },
+                new Vintage { Name = "2012" },
+                new Vintage { Name = "2013" },
+                new Vintage { Name = "2014" },
+                new Vintage { Name = "2015" },
+                new Vintage { Name = "2016" },
+                new Vintage { Name = "2017" },
+                new Vintage { Name = "2018" },
+                new Vintage { Name = "2019" },
+                new Vintage { Name = "2020" },
             };
                 context.AddRange(entities);
                 context.SaveChanges();
@@ -194,18 +166,20 @@ namespace Shop.Persistance.DataSeeders
             {
                 var entities = new List<Volume>
             {
-                new Volume { Name = "Afghanistan" },
-                new Volume { Name = "Albania" },
-                new Volume { Name = "Algeria" },
-                new Volume { Name = "Andorra" },
-                new Volume { Name = "Angola" },
-                new Volume { Name = "Antigua and Barbuda" },
-                new Volume { Name = "Argentina" },
-                new Volume { Name = "Armenia" },
-                new Volume { Name = "Aruba" },
-                new Volume { Name = "Australia" },
-                new Volume { Name = "Austria" },
-                new Volume { Name = "Azerbaijan" },
+                new Volume { Name = "20" },
+                new Volume { Name = "25" },
+                new Volume { Name = "27" },
+                new Volume { Name = "33" },
+                new Volume { Name = "35" },
+                new Volume { Name = "37" },
+                new Volume { Name = "50" },
+                new Volume { Name = "70" },
+                new Volume { Name = "75" },
+                new Volume { Name = "100" },
+                new Volume { Name = "150" },
+                new Volume { Name = "175" },
+                
+                
             };
                 context.AddRange(entities);
                 context.SaveChanges();
