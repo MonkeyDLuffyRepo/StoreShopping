@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Shop.Application.Domains;
+using Shop.Application.Interfaces;
 
 namespace Shop.Presentation.Controllers
 {
@@ -18,13 +21,27 @@ namespace Shop.Presentation.Controllers
     public class UserManagementController : Controller
     {
         private IConfiguration _config;
+        private readonly IUserService _service;
+        private readonly ILogger<CustomersManagementController> _logger;
 
-        public UserManagementController(IConfiguration config)
+       
+
+        public UserManagementController(IConfiguration config, IUserService service, ILogger<CustomersManagementController> logger)
         {
             _config = config;
+            _service = service ?? throw new NullReferenceException(nameof(service));
+            _logger = logger ?? throw new NullReferenceException(nameof(logger));
         }
         [AllowAnonymous]
-        [HttpPost]
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] UserModel entity)
+        {
+            _logger.LogDebug("UserManagementController: Register() called");
+            return Ok(_service.Add<UserModel>(entity));
+        }
+
+        [AllowAnonymous]
+        [HttpPost("login")]
         public IActionResult Login([FromBody] UserModel login)
         {
             IActionResult response = Unauthorized();
@@ -49,10 +66,15 @@ namespace Shop.Presentation.Controllers
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var claims = new[] {
+                                new Claim(JwtRegisteredClaimNames.Sub, userInfo.UserName),
+                                new Claim(JwtRegisteredClaimNames.Email, userInfo.Email),
+                                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                              };
 
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
               _config["Jwt:Issuer"],
-              null,
+              claims,
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
 
@@ -65,9 +87,9 @@ namespace Shop.Presentation.Controllers
 
             //Validate the User Credentials    
             //Demo Purpose, I have Passed HardCoded User Information    
-            if (login.Username == "Jignesh")
+            if (login.UserName == "Jignesh")
             {
-                user = new UserModel { Username = "Jignesh Trivedi", EmailAddress = "test.btest@gmail.com" };
+                user = new UserModel { UserName = "Jignesh Trivedi", Email = "test.btest@gmail.com" };
             }
             return user;
         }

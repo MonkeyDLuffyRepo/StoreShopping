@@ -25,6 +25,7 @@ namespace Store.API.Application.Services
             _mapper = mapper;
         }
 
+        #region public product services
         public IEnumerable<T> GetAll<T>() where T : ProductModel
         {
             var entities = _context.Products
@@ -57,6 +58,13 @@ namespace Store.API.Application.Services
 
             return entity;
         }
+        public void AddList<T>(IEnumerable<T> entities) where T : ProductModel
+        {
+            foreach(var entity in entities)
+            {
+                Add<T>(entity);
+            }
+        }
         public T Update<T>(T entity) where T : ProductModel
         {
             if (entity is null || entity.Id.Equals(0)) return null;
@@ -78,6 +86,55 @@ namespace Store.API.Application.Services
         {
             throw new NotImplementedException();
         }
+        #endregion
+        #region public related services
+        public IEnumerable<T> GetRelatedData<T>(BaseModel entity) where T : BaseModel
+        {
+            return (IEnumerable<T>) RelatedData(entity);
+        }
+        #endregion
+        #region private services
+        private IEnumerable<BaseModel> RelatedData(BaseModel entity)
+        {
+            dynamic entities;
+            switch (entity.type)
+            {
+                case RelatedProductDataEnum.CATEGORY:
+                    entities = _context.Categories.ToList();
+                    break;
+                case RelatedProductDataEnum.COLOR:
+                    entities = _context.Colors.ToList();
+                    break;
+                case RelatedProductDataEnum.COUNTRY:
+                    entities = _context.Countries.ToList();
+                    break;
+                case RelatedProductDataEnum.CONSERVATION:
+                    entities = _context.Conservations.ToList();
+                    break;
+                case RelatedProductDataEnum.ORINALITY:
+                    entities = _context.Originalities.ToList();
+                    break;
+                case RelatedProductDataEnum.REGION:
+                    entities = _context.Regions.ToList();
+                    break;
+                case RelatedProductDataEnum.TASTE:
+                    entities = _context.Tastes.ToList();
+                    break;
+                case RelatedProductDataEnum.VINTAGE:
+                    entities = _context.Vintages.ToList();
+                    break;
+                case RelatedProductDataEnum.VOLUME:
+                    entities = _context.Volumes.ToList();
+                    break;
+                default:
+                    return entities = null;
+                    
+            }
+            return _mapper.Map<IEnumerable<BaseModel>>(entities);
+
+        }
+        #endregion
+
     }
 
     public class ProductCriteria : ICriteriaBaseModel<Product>

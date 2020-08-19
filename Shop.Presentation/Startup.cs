@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Shop.Application.Interfaces;
+using Shop.Application.Services;
 using Shop.Persistance.Contexts;
 using Store.API.Application.Services;
 using System.Text;
@@ -57,6 +58,7 @@ namespace Shop.Presentation
                            };
                        });
             //Register Logic Services
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<IPanierService, PanierService>();
             services.AddTransient<IProductService, ProductService>();
