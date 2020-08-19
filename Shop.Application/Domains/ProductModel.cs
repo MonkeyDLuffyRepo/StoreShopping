@@ -6,7 +6,7 @@ namespace Shop.Application.Domains
 {
     public partial class ProductModel
     {
-        // comment
+        
         public int Id { get; set; }
         public string Reference { get; set; }
         public string Name { get; set; }
