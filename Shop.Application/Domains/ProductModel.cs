@@ -6,6 +6,7 @@ namespace Shop.Application.Domains
 {
     public partial class ProductModel
     {
+        
         public int Id { get; set; }
         public string Reference { get; set; }
         public string Name { get; set; }
@@ -26,5 +27,19 @@ namespace Shop.Application.Domains
         public int? TasteId { get; set; }
         public int? ConservationId { get; set; }
 
+    }
+
+    public enum RelatedProductDataEnum
+    {
+        CATEGORY = 0,
+        COLOR=1,
+        VINTAGE=2,
+        ORINALITY=3,
+        REGION=4,
+        COUNTRY=5,
+        VOLUME=6,
+        TASTE=7,
+        CONSERVATION=8,
+        OTHER=9
     }
 }

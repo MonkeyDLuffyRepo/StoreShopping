@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,9 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Shop.Application.Interfaces;
+using Shop.Application.Services;
 using Shop.Persistance.Contexts;
 using Store.API.Application.Services;
+using System.Text;
 
 namespace Shop.Presentation
 {
@@ -38,8 +42,23 @@ namespace Shop.Presentation
             services.AddSwaggerGen();
             //Register AutoMapper 
             services.AddAutoMapper(typeof(Startup));
+            //Register a JWT authentication schema
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                       {
+                           options.TokenValidationParameters = new TokenValidationParameters
+                           {
+                               ValidateIssuer = true,
+                               ValidateAudience = true,
+                               ValidateLifetime = true,
+                               ValidateIssuerSigningKey = true,
+                               ValidIssuer = Configuration["Jwt:Issuer"],
+                               ValidAudience = Configuration["Jwt:Issuer"],
+                               IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                           };
+                       });
             //Register Logic Services
-            //Register Logic Services
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<IPanierService, PanierService>();
             services.AddTransient<IProductService, ProductService>();
@@ -75,8 +94,12 @@ namespace Shop.Presentation
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+            //configure a JWT based authentication service
+            app.UseAuthentication();
+            //add routing service
             app.UseRouting();
-
+            app.UseAuthorization();
+            // add EndpointRouting
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

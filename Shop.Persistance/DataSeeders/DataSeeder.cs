@@ -4,12 +4,50 @@ using Shop.Persistance.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Shop.Persistance.DataSeeders
 {
     public class DataSeeder
     {
+        public static void SeedData(ShopContext context)
+        {
+            SeedCustomers(context);
+            SeedCountries(context);
+            SeedColors(context);
+            SeedConservations(context);
+            SeedConservations(context);
+            SeedCategories(context);
+            SeedOriginalities(context);
+            SeedTastes(context);
+            SeedVintages(context);
+            SeedVolumes(context);
+
+        }
+        public static void SeedCustomers(ShopContext context)
+        {
+            if (!context.Customers.Any())
+            {
+                var entities = new List<Customer>
+            {
+                new Customer { 
+                    FirstName = "Mohammed", LastName = "Ed-daou", UserName="eddaou.med", 
+                    Password = "password",Email = "eddaou.med@gmail.com",Birthday = new DateTime(1991,02,19),
+                    City = "Casablanca", Address = "51 rue attabari",Phone = "0625206679", CreationDate = DateTime.Now
+
+                },
+                new Customer {
+                    FirstName = "Saiid", LastName = "Messaoudi", UserName="saiid.mess",
+                    Password = "password",Email = "saiid.mess@gmail.com",Birthday = new DateTime(1991,06,29),
+                    City = "Casablanca", Address = "55 rue nearshore",Phone = "0625206679", CreationDate = DateTime.Now
+
+                } 
+            };
+                context.AddRange(entities);
+                context.SaveChanges();
+            }
+        }
         public static void SeedCountries(ShopContext context)
         {
             if (!context.Countries.Any())
@@ -51,16 +89,6 @@ namespace Shop.Persistance.DataSeeders
             {
                 new Conservation { Name = "Prêt à boire" },
                 new Conservation { Name = "Peut être conservé" },
-                new Conservation { Name = "Algeria" },
-                new Conservation { Name = "Andorra" },
-                new Conservation { Name = "Angola" },
-                new Conservation { Name = "Antigua and Barbuda" },
-                new Conservation { Name = "Argentina" },
-                new Conservation { Name = "Armenia" },
-                new Conservation { Name = "Aruba" },
-                new Conservation { Name = "Australia" },
-                new Conservation { Name = "Austria" },
-                new Conservation { Name = "Azerbaijan" },
             };
                 context.AddRange(entities);
                 context.SaveChanges();
@@ -166,18 +194,18 @@ namespace Shop.Persistance.DataSeeders
             {
                 var entities = new List<Volume>
             {
-                new Volume { Name = "20" },
-                new Volume { Name = "25" },
-                new Volume { Name = "27" },
-                new Volume { Name = "33" },
-                new Volume { Name = "35" },
-                new Volume { Name = "37" },
-                new Volume { Name = "50" },
-                new Volume { Name = "70" },
-                new Volume { Name = "75" },
-                new Volume { Name = "100" },
-                new Volume { Name = "150" },
-                new Volume { Name = "175" },
+                new Volume { Name = "20 cl" },
+                new Volume { Name = "25 cl" },
+                new Volume { Name = "27 cl" },
+                new Volume { Name = "33 cl" },
+                new Volume { Name = "35 cl" },
+                new Volume { Name = "37 cl" },
+                new Volume { Name = "50 cl" },
+                new Volume { Name = "70 cl" },
+                new Volume { Name = "75 cl" },
+                new Volume { Name = "100 cl" },
+                new Volume { Name = "150 cl" },
+                new Volume { Name = "175 cl" },
                 
                 
             };

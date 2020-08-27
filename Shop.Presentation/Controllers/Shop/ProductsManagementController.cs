@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,6 +14,7 @@ namespace Shop.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductsManagementController : ControllerBase
     {
         private readonly IProductService _service;
@@ -42,6 +44,19 @@ namespace Shop.Presentation.Controllers
             return Ok(_service.GetAll<ProductModel>());
         }
         /// <summary>
+        /// GetAllCompanies
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("get-related-data")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetRelatedData([FromBody] BaseModel type )
+        {
+            _logger.LogDebug("ProductsManagementController: GetRelatedData() called");
+            return Ok(_service.GetRelatedData<BaseModel>(type));
+        }
+        /// <summary>
         /// GetCompanyById
         /// </summary>
         /// <param name="id"></param>
@@ -69,6 +84,22 @@ namespace Shop.Presentation.Controllers
             _logger.LogDebug("ProductsManagementController: Create() called");
             if (productModel == null) return BadRequest();
             return Ok(_service.Add<ProductModel>(productModel));
+        }
+        /// <summary>
+        /// CreateCompany
+        /// </summary>
+        /// <param name="productModel"></param>
+        /// <returns></returns>
+        [HttpPost("create-products")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult CreateAll([FromBody] IEnumerable<ProductModel> productsModel)
+        {
+            _logger.LogDebug("ProductsManagementController: Create() called");
+            if (productsModel == null) return BadRequest();
+            _service.AddList<ProductModel>(productsModel);
+            return Ok();
         }
         /// <summary>
         /// UpdateCompany
