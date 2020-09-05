@@ -2,11 +2,13 @@
    "ContextClassName": "ShopContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
    "IncludeConnectionString": false,
    "ModelNamespace": null,
    "OutputContextPath": "Contexts",
    "OutputPath": "Entities",
    "ProjectRootNamespace": "Shop.Persistance",
+   "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
    "SelectedToBeGenerated": 0,
    "Tables": [

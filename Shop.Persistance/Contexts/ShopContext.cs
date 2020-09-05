@@ -42,6 +42,10 @@ namespace Shop.Persistance.Contexts
 
                 entity.Property(e => e.Description).HasMaxLength(150);
 
+                entity.Property(e => e.Enable)
+                    .IsRequired()
+                    .HasDefaultValueSql("((1))");
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -250,23 +254,11 @@ namespace Shop.Persistance.Contexts
             {
                 entity.ToTable("ShopStore");
 
-                entity.Property(e => e.Address).IsRequired();
+                entity.Property(e => e.Email).HasMaxLength(100);
 
-                entity.Property(e => e.CreationDate).HasColumnType("datetime");
+                entity.Property(e => e.Name).HasMaxLength(100);
 
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.ModificationDate).HasColumnType("datetime");
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.Phone)
-                    .IsRequired()
-                    .HasMaxLength(20);
+                entity.Property(e => e.Phone).HasMaxLength(20);
             });
 
             modelBuilder.Entity<Taste>(entity =>

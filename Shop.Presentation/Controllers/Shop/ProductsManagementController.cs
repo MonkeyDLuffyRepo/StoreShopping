@@ -30,6 +30,7 @@ namespace Shop.Presentation.Controllers
             _service = service ?? throw new NullReferenceException(nameof(service));
             _logger = logger ?? throw new NullReferenceException(nameof(logger));
         }
+        #region products endpoints
         /// <summary>
         /// GetAllCompanies
         /// </summary>
@@ -130,6 +131,66 @@ namespace Shop.Presentation.Controllers
             _logger.LogDebug("ProductsManagementController: Delete() called");
             throw new NotImplementedException();
         }
+        #endregion
+        #region categories endpoints
+        /// <summary>
+        /// GetAllCategories
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("get-all-categoreis")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetCategoriesAll()
+        {
+            _logger.LogDebug("ProductsManagementController: GetCategoriesAll() called");
+            return Ok(_service.GetAllCategories<ProductCategoryModel>());
+        }
+        /// <summary>
+        /// GetCategoryById
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("get-category-by-id/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetCategoryById(int id)
+        {
+            _logger.LogDebug("ProductsManagementController: GetCategoryById() called");
+            return Ok(_service.GetCategoryById<ProductCategoryModel>(id));
+        }
+        /// <summary>
+        /// CreateCategory
+        /// </summary>
+        /// <param name="categoryModel"></param>
+        /// <returns></returns>
+        [HttpPost("create-category")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult CreateCategory([FromBody] ProductCategoryModel categoryModel)
+        {
+            _logger.LogDebug("ProductsManagementController: CreateCategory() called");
+            if (categoryModel == null) return BadRequest();
+            return Ok(_service.AddCategory<ProductCategoryModel>(categoryModel));
+        }
+        /// <summary>
+        /// GetCategoryById
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPatch("toggle-category-visiblity/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult ToggleCategory(int id)
+        {
+            _logger.LogDebug("ProductsManagementController: ToggleCategoryById() called");
+            _service.ToggleVisibility(id);
+            return Ok();
+        }
+        #endregion
 
     }
 }

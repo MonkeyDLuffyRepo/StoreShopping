@@ -15,6 +15,9 @@ namespace Shop.Persistance.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime CreationDate { get; set; }
+        public bool HasSubCategory { get; set; }
+        public int ParentId { get; set; }
+        public bool Enable { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }

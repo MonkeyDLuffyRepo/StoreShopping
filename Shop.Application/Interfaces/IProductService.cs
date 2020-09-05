@@ -22,6 +22,12 @@ namespace Shop.Application.Interfaces
         #region related product service
         IEnumerable<T> GetRelatedData<T>(BaseModel entity) where T : BaseModel;
         #endregion
+        #region product categories  services
+        IEnumerable<T> GetAllCategories<T>() where T : ProductCategoryModel;
+        T GetCategoryById<T>(int id) where T : ProductCategoryModel;
+        T AddCategory<T>(T entity) where T : ProductCategoryModel;
+        void ToggleVisibility(int id);
+        #endregion
 
     }
 }

@@ -46,7 +46,10 @@ namespace Store.API.Application.Services
         }
         public T GetById<T>(int id) where T : ProductModel
         {
-            throw new NotImplementedException();
+            var entity = _context.Products
+                    .FirstOrDefault(e => e.Id == id);
+
+            return _mapper.Map<T>(entity);
         }
         public T Add<T>(T entity) where T : ProductModel
         {
@@ -92,7 +95,45 @@ namespace Store.API.Application.Services
         {
             return (IEnumerable<T>) RelatedData(entity);
         }
+        public IEnumerable<T> GetAllCategories<T>() where T : ProductCategoryModel
+        {
+            var entities = _context.Categories
+                   .Where(e => e.Enable)
+                   .ToList();
+
+            return _mapper.Map<IEnumerable<T>>(entities);
+        }
+
+        public T GetCategoryById<T>(int id) where T : ProductCategoryModel
+        {
+            var entity = _context.Categories
+                   .FirstOrDefault(e => e.Id == id);
+
+            return _mapper.Map<T>(entity);
+        }
+
+        public T AddCategory<T>(T entity) where T : ProductCategoryModel
+        {
+            var newEntity = _mapper.Map<Category>(entity);
+            newEntity.CreationDate = DateTime.Now;
+
+            _context.Categories.Add(newEntity);
+            _context.SaveChanges();
+
+            return entity;
+        }
+
+        public void ToggleVisibility(int id)
+        {
+            var entity = _context.Categories
+                  .FirstOrDefault(e => e.Id == id);
+
+            if (entity is null) return;
+            entity.Enable = !entity.Enable;
+            _context.SaveChanges();
+        }
         #endregion
+
         #region private services
         private IEnumerable<BaseModel> RelatedData(BaseModel entity)
         {
@@ -133,6 +174,8 @@ namespace Store.API.Application.Services
             return _mapper.Map<IEnumerable<BaseModel>>(entities);
 
         }
+
+       
         #endregion
 
     }
