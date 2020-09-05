@@ -73,7 +73,7 @@
     <Build Include="dbo\Tables\Volume.sql" />
     <Build Include="dbo\Tables\Vintage.sql" />
     <Build Include="dbo\Tables\Taste.sql" />
-    <Build Include="dbo\Tables\Store.sql" />
+    <Build Include="dbo\Tables\ShopStore.sql" />
     <Build Include="dbo\Tables\Region.sql" />
     <Build Include="dbo\Tables\Product.sql" />
     <Build Include="dbo\Tables\PanierProduct.sql" />

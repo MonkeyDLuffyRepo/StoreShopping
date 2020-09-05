@@ -33,13 +33,13 @@ namespace Shop.Persistance.DataSeeders
             {
                 new Customer { 
                     FirstName = "Mohammed", LastName = "Ed-daou", UserName="eddaou.med", 
-                    Password = "password",Email = "eddaou.med@gmail.com",Birthday = new DateTime(1991,02,19),
+                   Email = "eddaou.med@gmail.com",Birthday = new DateTime(1991,02,19),
                     City = "Casablanca", Address = "51 rue attabari",Phone = "0625206679", CreationDate = DateTime.Now
 
                 },
                 new Customer {
                     FirstName = "Saiid", LastName = "Messaoudi", UserName="saiid.mess",
-                    Password = "password",Email = "saiid.mess@gmail.com",Birthday = new DateTime(1991,06,29),
+                   Email = "saiid.mess@gmail.com",Birthday = new DateTime(1991,06,29),
                     City = "Casablanca", Address = "55 rue nearshore",Phone = "0625206679", CreationDate = DateTime.Now
 
                 } 

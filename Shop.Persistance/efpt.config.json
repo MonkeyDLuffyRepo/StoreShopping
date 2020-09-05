@@ -2,8 +2,6 @@
    "ContextClassName": "ShopContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
-   "DoNotCombineNamespace": false,
-   "IdReplace": false,
    "IncludeConnectionString": false,
    "ModelNamespace": null,
    "OutputContextPath": "Contexts",
@@ -75,5 +73,7 @@
    "UseHandleBars": false,
    "UseInflector": true,
    "UseLegacyPluralizer": false,
-   "UseSpatial": false
+   "UseNodaTime": false,
+   "UseSpatial": false,
+   "UseStoredProcedures": false
 }

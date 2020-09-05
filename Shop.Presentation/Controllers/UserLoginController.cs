@@ -45,12 +45,15 @@ namespace Shop.Presentation.Controllers
         public IActionResult Login([FromBody] UserModel login)
         {
             IActionResult response = Unauthorized();
-            var user = AuthenticateUser(login);
+            var user = _service.Authentification<UserModel>(login);
 
             if (user != null)
             {
                 var tokenString = GenerateJSONWebToken(user);
-                response = Ok(new { token = tokenString });
+                response = Ok(new {
+                    token = tokenString ,
+                    userId = user.Id
+                }) ;
             }
 
             return response;

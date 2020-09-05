@@ -43,6 +43,15 @@ namespace Shop.Presentation.Configurations
 
             #endregion
 
+            #region User_Mapping
+            CreateMap<Customer, UserModel>()
+                   .ForMember(d => d.Password, opt => opt.Ignore())
+                   .ReverseMap()
+                   .ForMember(d => d.Password, opt => opt.Ignore())
+                   .ForMember(d => d.PasswordSalt, opt => opt.Ignore())
+                   ;
+            #endregion
+
             #region Customer_Mapping
 
             CreateMap<Customer, CustomerModel>()
