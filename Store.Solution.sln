@@ -3,19 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Presentation", "Store.Presentation\Store.Presentation.csproj", "{A9CBE6D0-2BBB-40E1-9A86-F60D9D969625}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Application", "Store.Application\Store.Application.csproj", "{80733477-2CE6-48F5-95E9-FFA7548B15E4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infrastructure", "Store.Infrastructure\Store.Infrastructure.csproj", "{A9DD97B5-5C3D-4B35-9A5E-64A18E9AB9F8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Domain", "Store.Domain\Store.Domain.csproj", "{6B5D375C-936D-4847-80F3-0A6198DE44AC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Persistance", "Store.Persistance\Store.Persistance.csproj", "{DB76DAA8-A25E-4875-9D58-CF7D9BBCED39}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Store.DatabaseSchema", "Srore.DatabaseSchema\Store.DatabaseSchema.sqlproj", "{9E199313-B445-4111-8BFB-CC16FF90069B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.API", "Store.API\Store.API.csproj", "{5ACBAC4E-EAB1-452E-AA03-91F4DBD3CF5B}"
+
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Store.DatabaseSchema", "Store.DatabaseSchema\Store.DatabaseSchema.sqlproj", "{9E199313-B445-4111-8BFB-CC16FF90069B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Persistance", "Shop.Persistance\Shop.Persistance.csproj", "{2FC8C695-AE38-4050-AEC3-AA2C98C0EE34}"
 EndProject
@@ -23,8 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Application", "Shop.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Presentation", "Shop.Presentation\Shop.Presentation.csproj", "{49C3ECA3-DDC1-41F3-88EE-C4ACD832C6A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{900E46A0-70B9-49E9-B9A6-92FE98F1D185}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
