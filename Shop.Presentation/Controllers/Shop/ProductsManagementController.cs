@@ -186,7 +186,7 @@ namespace Shop.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult ToggleCategory(int id)
         {
-            _logger.LogDebug("ProductsManagementController: ToggleCategoryById() called");
+            _logger.LogDebug("ProductsManagementController: ToggleCategory() called");
             _service.ToggleVisibility(id);
             return Ok();
         }

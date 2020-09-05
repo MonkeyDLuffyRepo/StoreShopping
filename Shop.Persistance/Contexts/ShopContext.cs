@@ -254,6 +254,8 @@ namespace Shop.Persistance.Contexts
             {
                 entity.ToTable("ShopStore");
 
+                entity.Property(e => e.CreationDate).HasColumnType("datetime");
+
                 entity.Property(e => e.Email).HasMaxLength(100);
 
                 entity.Property(e => e.Name).HasMaxLength(100);

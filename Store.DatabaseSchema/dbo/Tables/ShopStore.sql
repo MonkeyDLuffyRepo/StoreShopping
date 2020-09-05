@@ -4,6 +4,7 @@
     [Email]   NVARCHAR (100) NULL,
     [Phone]   NVARCHAR (20)  NULL,
     [Address] NVARCHAR (MAX) NULL,
+    [CreationDate] DATETIME NOT NULL, 
     CONSTRAINT [PK_Store] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
