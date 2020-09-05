@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Domain", "Store.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Persistance", "Store.Persistance\Store.Persistance.csproj", "{DB76DAA8-A25E-4875-9D58-CF7D9BBCED39}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Srore.DatabaseSchema", "Srore.DatabaseSchema\Srore.DatabaseSchema.sqlproj", "{9E199313-B445-4111-8BFB-CC16FF90069B}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Store.DatabaseSchema", "Srore.DatabaseSchema\Store.DatabaseSchema.sqlproj", "{9E199313-B445-4111-8BFB-CC16FF90069B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.API", "Store.API\Store.API.csproj", "{5ACBAC4E-EAB1-452E-AA03-91F4DBD3CF5B}"
 EndProject
