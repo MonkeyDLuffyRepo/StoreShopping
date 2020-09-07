@@ -40,6 +40,9 @@ namespace Shop.Presentation.Configurations
               CreateMap<Volume, BaseModel>()
                     .ReverseMap()
                     ;
+            CreateMap<Category, ProductCategoryModel>()
+                    .ReverseMap()
+                    ;
 
             #endregion
 

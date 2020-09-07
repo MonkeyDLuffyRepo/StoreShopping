@@ -14,7 +14,6 @@ namespace Shop.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ProductsManagementController : ControllerBase
     {
         private readonly IProductService _service;

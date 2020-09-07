@@ -114,13 +114,21 @@ namespace Store.API.Application.Services
 
         public T AddCategory<T>(T entity) where T : ProductCategoryModel
         {
+            var categoryCriteria = new CategoryCriteria() { Name = entity.Name };
+            if (AnyCategory(categoryCriteria)) return null;
+
             var newEntity = _mapper.Map<Category>(entity);
             newEntity.CreationDate = DateTime.Now;
 
             _context.Categories.Add(newEntity);
             _context.SaveChanges();
 
-            return entity;
+            return _mapper.Map<T>(newEntity);
+        }
+
+        private bool AnyCategory(CategoryCriteria categoryCriteria)
+        {
+            return _context.Categories.Any(categoryCriteria.Match());
         }
 
         public void ToggleVisibility(int id)
@@ -135,6 +143,7 @@ namespace Store.API.Application.Services
         #endregion
 
         #region private services
+       
         private IEnumerable<BaseModel> RelatedData(BaseModel entity)
         {
             dynamic entities;
@@ -190,6 +199,21 @@ namespace Store.API.Application.Services
         {
             var predicate = PredicateBuilder.New<Product>(t => true);
             if (Id.HasValue) predicate = predicate.And(d => d.Id == Id);
+            return predicate;
+        }
+    }
+
+    public class CategoryCriteria : ICriteriaBaseModel<Category>
+    {
+        public int? Id { get; set; }
+        public DateTime? CreationDate { get; set; }
+        public DateTime? ModificationDate { get; set; }
+        public string Name { get; set; }
+        public Expression<Func<Category, bool>> Match()
+        {
+            var predicate = PredicateBuilder.New<Category>(t => true);
+            if (Id.HasValue) predicate = predicate.And(d => d.Id == Id);
+            if (!string.IsNullOrEmpty(Name)) predicate = predicate.And(d => d.Name.ToLower() == Name.ToLower());
             return predicate;
         }
     }
