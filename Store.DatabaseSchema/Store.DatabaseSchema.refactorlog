@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="a95bdae7-ab1d-4ddd-9c6b-a148ca3c7d15" ChangeDateTime="09/08/2020 23:08:04">
+    <Property Name="ElementName" Value="[dbo].[Product].[Price]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Product]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="newPrice" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7070bc6c-9019-481f-a0c5-521d4b2c5ad8" ChangeDateTime="09/08/2020 23:08:12">
+    <Property Name="ElementName" Value="[dbo].[Product].[newPrice]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Product]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NewPrice" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6d1809b0-6a22-4a4c-b6c2-78a437c142e0" ChangeDateTime="09/08/2020 23:09:02">
+    <Property Name="ElementName" Value="[dbo].[Product].[AvailableStock]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Product]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Available" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="beabce03-1293-41f4-ba30-c24403e6d400" ChangeDateTime="09/08/2020 23:09:26">
+    <Property Name="ElementName" Value="[dbo].[Product].[Available]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Product]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AvailibilityCount" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0a122fd1-449e-46d6-84e3-c2e01221113b" ChangeDateTime="09/08/2020 23:11:44">
+    <Property Name="ElementName" Value="[dbo].[Product].[ratingsCount]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Product]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RatingsCount" />
+  </Operation>
+</Operations>

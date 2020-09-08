@@ -19,8 +19,8 @@ namespace Shop.Persistance.Entities
         public int CategoryId { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? ModificationDate { get; set; }
-        public decimal? Price { get; set; }
-        public int? AvailableStock { get; set; }
+        public decimal? NewPrice { get; set; }
+        public int? AvailibilityCount { get; set; }
         public string PicturesPath { get; set; }
         public int? ColorId { get; set; }
         public int? VintageId { get; set; }
@@ -30,6 +30,10 @@ namespace Shop.Persistance.Entities
         public int? VolumeId { get; set; }
         public int? TasteId { get; set; }
         public int? ConservationId { get; set; }
+        public decimal? OldPrice { get; set; }
+        public int? Discount { get; set; }
+        public int? RatingsCount { get; set; }
+        public int? RatingsValue { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual Color Color { get; set; }

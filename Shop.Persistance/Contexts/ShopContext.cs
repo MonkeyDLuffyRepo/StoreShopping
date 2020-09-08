@@ -188,9 +188,11 @@ namespace Shop.Persistance.Contexts
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.PicturesPath).HasMaxLength(150);
+                entity.Property(e => e.NewPrice).HasColumnType("decimal(10, 4)");
 
-                entity.Property(e => e.Price).HasColumnType("decimal(10, 4)");
+                entity.Property(e => e.OldPrice).HasColumnType("decimal(10, 4)");
+
+                entity.Property(e => e.PicturesPath).HasMaxLength(150);
 
                 entity.Property(e => e.Reference).HasMaxLength(15);
 
