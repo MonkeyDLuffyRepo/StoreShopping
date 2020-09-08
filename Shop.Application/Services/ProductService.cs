@@ -2,6 +2,7 @@
 using LinqKit;
 using Microsoft.EntityFrameworkCore;
 using Omu.ValueInjecter;
+using Omu.ValueInjecter.Injections;
 using Shop.Application.Domains;
 using Shop.Application.Infrastructures;
 using Shop.Application.Interfaces;
@@ -126,9 +127,26 @@ namespace Store.API.Application.Services
             return _mapper.Map<T>(newEntity);
         }
 
+        public T UpdateCategory<T>(T entity) where T : ProductCategoryModel
+        {
+            if (entity is null || entity.Id.Equals(0)) return null;
+            var oldEntity = _context.Categories
+                                            .FirstOrDefault(p => p.Id == entity.Id);
+            if (oldEntity is null) return null;
+
+            var updatedEntity = _mapper.Map<Category>(entity);
+            var changedFields = ObjectsComparer.GetChangedFields(oldEntity, updatedEntity);
+            oldEntity.InjectFrom(new AvoidNullProps(new[] { "Enable", "CreationDate", "Id" }), updatedEntity);
+            _context.Entry(oldEntity).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return entity;
+        }
+
         private bool AnyCategory(CategoryCriteria categoryCriteria)
         {
             return _context.Categories.Any(categoryCriteria.Match());
+
         }
 
         public void ToggleVisibility(int id)

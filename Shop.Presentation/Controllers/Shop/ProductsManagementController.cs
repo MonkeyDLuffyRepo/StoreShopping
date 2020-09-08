@@ -175,6 +175,21 @@ namespace Shop.Presentation.Controllers
             return Ok(_service.AddCategory<ProductCategoryModel>(categoryModel));
         }
         /// <summary>
+        /// CreateCategory
+        /// </summary>
+        /// <param name="categoryModel"></param>
+        /// <returns></returns>
+        [HttpPut("update-category")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult UpdateCategory([FromBody] ProductCategoryModel categoryModel)
+        {
+            _logger.LogDebug("ProductsManagementController: CreateCategory() called");
+            if (categoryModel == null) return BadRequest();
+            return Ok(_service.UpdateCategory<ProductCategoryModel>(categoryModel));
+        }
+        /// <summary>
         /// GetCategoryById
         /// </summary>
         /// <param name="id"></param>

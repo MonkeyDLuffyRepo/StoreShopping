@@ -7,76 +7,80 @@ import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-di
 import { AppSettings, Settings } from 'src/app/app.settings';
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss']
+    selector: 'app-categories',
+    templateUrl: './categories.component.html',
+    styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  public categories:Category[] = []; 
-  public page: any;
-  public count = 6;
-  public settings:Settings;
-  constructor(public appService: AppService, public dialog: MatDialog, public appSettings:AppSettings) {
-    this.settings = this.appSettings.settings;
-  }
+    public categories: Category[] = [];
+    public page: any;
+    public count = 6;
+    public settings: Settings;
+    constructor(public appService: AppService, public dialog: MatDialog, public appSettings: AppSettings) {
+        this.settings = this.appSettings.settings;
+    }
 
-  ngOnInit(): void {
-    this.getCategories();
-  }
+    ngOnInit(): void {
+        this.getCategories();
+    }
 
-  public getCategories(){   
-    this.appService.getCategories().subscribe(data => {
-      this.categories = data; 
-      this.categories.shift();
-    }); 
-  }
+    public getCategories() {
+        this.appService.getCategories().subscribe(data => {
+            this.categories = data;
+            this.categories.shift();
+        });
+    }
 
-  public onPageChanged(event){
-    this.page = event; 
-    window.scrollTo(0,0); 
-  }
+    public onPageChanged(event) {
+        this.page = event;
+        window.scrollTo(0, 0);
+    }
 
-  public openCategoryDialog(data:any){
-    const dialogRef = this.dialog.open(CategoryDialogComponent, {
-      data: {
-        category: data,
-        categories: this.categories
-      },
-      panelClass: ['theme-dialog'],
-      autoFocus: false,
-      direction: (this.settings.rtl) ? 'rtl' : 'ltr'
-    });
-    dialogRef.afterClosed().subscribe(category => { 
-      if(category){    
-        const index: number = this.categories.findIndex(x => x.id == category.id);
-        if(index !== -1){
-          this.categories[index] = category;
-        } 
-        else{ 
-          let last_category = this.categories[this.categories.length - 1]; 
-          category.id = last_category.id + 1;
-          this.categories.push(category);  
-        }          
-      }
-    });
-  }
+    public openCategoryDialog(data: any) {
+        const dialogRef = this.dialog.open(CategoryDialogComponent, {
+            data: {
+                category: data,
+                categories: this.categories
+            },
+            panelClass: ['theme-dialog'],
+            autoFocus: false,
+            direction: (this.settings.rtl) ? 'rtl' : 'ltr'
+        });
+        dialogRef.afterClosed().subscribe(category => {
+            if (category) {
+                const index: number = this.categories.findIndex(x => x.id == category.id);
+                if (index !== -1) {
+                    this.categories[index] = category;
+                    this.appService.updateCategory(category).subscribe(cat => console.log(cat));
+                }
+                else {
+                    this.appService.createCategory(category).subscribe(cat => console.log(cat));
+                    let last_category = this.categories[this.categories.length - 1];
+                    category.id = last_category.id + 1;
+                    this.categories.push(category);
 
-  public remove(category:any){  
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      maxWidth: "400px",
-      data: {
-        title: "Confirm Action",
-        message: "Are you sure you want remove this category?"
-      }
-    }); 
-    dialogRef.afterClosed().subscribe(dialogResult => { 
-      if(dialogResult){
-        const index: number = this.categories.indexOf(category);
-        if (index !== -1) {
-          this.categories.splice(index, 1);  
-        } 
-      } 
-    }); 
-  }
+                }
+            }
+        });
+    }
+
+    public remove(category: any) {
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            maxWidth: "400px",
+            data: {
+                title: "Confirm Action",
+                message: "Are you sure you want remove this category?"
+            }
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+            if (dialogResult) {
+                this.appService.removeCategory(category.id).subscribe();
+                const index: number = this.categories.indexOf(category);
+                if (index !== -1) {
+                    this.categories.splice(index, 1);
+                }
+            }
+        });
+    }
 
 }

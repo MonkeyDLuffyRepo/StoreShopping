@@ -26,6 +26,7 @@ namespace Shop.Application.Interfaces
         IEnumerable<T> GetAllCategories<T>() where T : ProductCategoryModel;
         T GetCategoryById<T>(int id) where T : ProductCategoryModel;
         T AddCategory<T>(T entity) where T : ProductCategoryModel;
+        T UpdateCategory<T>(T entity) where T : ProductCategoryModel;
         void ToggleVisibility(int id);
         #endregion
 

@@ -27,8 +27,9 @@ export class AppService {
     
   
     public url = "assets/data/"; 
-    constructor(public http:HttpClient, public snackBar: MatSnackBar) { }
-    
+    constructor(public http: HttpClient, public snackBar: MatSnackBar) { }
+
+    // rest api begin
     public getCategories(): Observable<Category[]>{
         // return this.http.get<Category[]>(this.url + 'categories.json');
         const fullUrl = GlobalConfig.productsBaseUrl + '/get-all-categoreis';
@@ -37,7 +38,29 @@ export class AppService {
             fullUrl
         );
     }
-   
+    public createCategory(category: Category): Observable<Category>{
+        const fullUrl = GlobalConfig.productsBaseUrl + '/create-category';
+        return this.http.post<Category>(
+            fullUrl,
+            category
+        );
+    }
+    public updateCategory(category: Category): Observable<Category> {
+        const fullUrl = GlobalConfig.productsBaseUrl + '/update-category';
+        return this.http.put<Category>(
+            fullUrl,
+            category
+        );
+    }
+    public removeCategory(id: number): Observable<void> {
+        const fullUrl = GlobalConfig.productsBaseUrl + `/toggle-category-visiblity/${id}`;
+        return this.http.patch<void>(
+            fullUrl,
+            {}
+        );
+    }
+   //rest api end
+
     public getProducts(type): Observable<Product[]>{        
         return this.http.get<Product[]>(this.url + type + '-products.json');
     }
