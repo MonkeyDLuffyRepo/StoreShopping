@@ -1,3 +1,5 @@
+import { Guid } from 'guid-typescript';
+
 export class Category {
   constructor(public id: number, 
               public name:string, 
@@ -22,3 +24,12 @@ export class Product {
               public weight: number,
               public categoryId: number){ }
 }
+
+
+export class Image {
+    constructor(
+        public reference: Guid,
+        public preview: string
+        ) { }
+}
+

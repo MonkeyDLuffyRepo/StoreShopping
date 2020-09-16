@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Category, Product } from './app.models';
+import { Category, Product , Image} from './app.models';
 import { GlobalConfig } from './global.config';
+import { Guid } from 'guid-typescript';
 
 export class Data {
     constructor(public categories: Category[],
@@ -16,6 +17,7 @@ export class Data {
 
 @Injectable()
 export class AppService {
+   
     public Data = new Data(
         [], // categories
         [], // compareList
@@ -60,6 +62,42 @@ export class AppService {
         );
     }
    //rest api end
+
+
+    public addProduct(product: Product): Observable<Product> {
+
+        const fullUrl = GlobalConfig.productsBaseUrl + `/create-product`;
+        return this.http.post<Product>(
+            fullUrl,
+            this.resolveProduct(product)
+            
+        );
+    }
+
+    public uploadDocument(reference: Guid, document: Image): Observable<void> {
+        document.reference = reference.toString();
+
+        const fullUrl = GlobalConfig.productsBaseUrl + `/upload-document`;
+        return this.http.post<void>(
+            fullUrl,
+            document
+        );
+    }
+
+
+    private resolveProduct(product: Product): Product {
+        product.oldPrice = +product.oldPrice;
+        product.newPrice = +product.newPrice;
+        return product;
+    }
+
+    uploadImages(reference: Guid, images: Image[]) {
+
+        images.forEach(image => this.uploadDocument(reference, image)
+            .subscribe())
+       
+    }
+
 
     public getProducts(type): Observable<Product[]>{        
         return this.http.get<Product[]>(this.url + type + '-products.json');

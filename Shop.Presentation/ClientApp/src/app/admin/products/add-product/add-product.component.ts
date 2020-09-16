@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppService } from 'src/app/app.service';
 import { Category } from 'src/app/app.models';
 import { ActivatedRoute } from '@angular/router';
+import { Guid } from "guid-typescript";
 
 @Component({
   selector: 'app-add-product',
@@ -16,12 +17,18 @@ export class AddProductComponent implements OnInit {
   public selectedColors:string;
   public categories:Category[];
   private sub: any;
-  public id:any;
+  public id: any;
+  private reference: Guid;
 
-  constructor(public appService:AppService, public formBuilder: FormBuilder, private activatedRoute: ActivatedRoute ) { }
 
-  ngOnInit(): void {
-    this.form = this.formBuilder.group({ 
+    constructor(public appService: AppService, public formBuilder: FormBuilder, private activatedRoute: ActivatedRoute)
+    {
+        this.reference = Guid.create();
+    }
+
+    ngOnInit(): void {
+        this.form = this.formBuilder.group({
+      'reference': this.reference,
       'name': [null, Validators.compose([Validators.required, Validators.minLength(4)])],
       'images': null,
       "oldPrice": null,
@@ -66,8 +73,10 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-  public onSubmit(){
-    console.log(this.form.value);
+    public onSubmit() {
+        this.appService.uploadImages(this.reference,this.form.value.images);
+        this.appService.addProduct(this.form.value)
+            .subscribe(data => console.log(data));
   }
 
   public onColorSelectionChange(event:any){  

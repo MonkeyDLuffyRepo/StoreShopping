@@ -77,10 +77,10 @@ namespace Store.API.Application.Services
             if (oldEntity is null) return null;
 
             var updatedEntity = _mapper.Map<Product>(entity);
-
+            updatedEntity.ModificationDate  = DateTime.Now; ;
             var changedFields = ObjectsComparer.GetChangedFields(oldEntity, updatedEntity);
 
-            oldEntity.InjectFrom<AvoidNullProps>(updatedEntity);
+            oldEntity.InjectFrom(new AvoidNullProps(new[] {"Id","CreationDate" }), updatedEntity);
             _context.Entry(oldEntity).State = EntityState.Modified;
             _context.SaveChanges();
 

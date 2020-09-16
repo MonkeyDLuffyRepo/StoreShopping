@@ -85,6 +85,19 @@ namespace Shop.Presentation.Controllers
             if (productModel == null) return BadRequest();
             return Ok(_service.Add<ProductModel>(productModel));
         }
+
+        [HttpPost("upload-document")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult UploadDocument([FromBody] DocumentModel documentModel)
+        {
+            _logger.LogDebug("ProductsManagementController: UploadDocument() called");
+
+            if (documentModel == null) return BadRequest();
+
+            return Ok();
+        }
         /// <summary>
         /// CreateCompany
         /// </summary>

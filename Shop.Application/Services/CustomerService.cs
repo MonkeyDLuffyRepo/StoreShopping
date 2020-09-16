@@ -9,13 +9,14 @@ using Shop.Persistance.Contexts;
 using Shop.Persistance.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 
 
 namespace Store.API.Application.Services
 {
-   public class CustomerService : ICustomerService
+    public class CustomerService : ICustomerService
     {
         private readonly ShopContext _context;
         private readonly IMapper _mapper;
@@ -83,7 +84,7 @@ namespace Store.API.Application.Services
 
     public class CustomerCriteria : ICriteriaBaseModel<Customer>
     {
-        public int? Id { get ; set; }
+        public int? Id { get; set; }
         public DateTime? CreationDate { get; set; }
         public DateTime? CreationDateFrom { get; set; }
         public DateTime? CreationDateTo { get; set; }
@@ -91,7 +92,7 @@ namespace Store.API.Application.Services
         public DateTime? ModificationDateFrom { get; set; }
         public DateTime? ModificationDateTo { get; set; }
         public string Name { get; set; }
-       
+
         public Expression<Func<Customer, bool>> Match()
         {
             var predicate = PredicateBuilder.New<Customer>(t => true);
@@ -100,4 +101,48 @@ namespace Store.API.Application.Services
             return predicate;
         }
     }
+
+
+    public class ClientSMS
+    {
+        public int Telephone { get; set; }
+        public int SC { get; set; }
+        public DateTime DateMessage { get; set; }
+
+    }
+
+    public  class ServiceVote{
+        public  List<ClientSMS> clientSMs = new List<ClientSMS>();
+        public  DateTime dateStart = new DateTime(2017,3,1); // 01/03/2017  
+        public  DateTime dateEnd = new DateTime(2017,3,7); //  07/03/2017. 
+
+        public  List<int> GetTreeWiner(List<ClientSMS> clientSMs)
+        {
+            var winers = new List<int>();
+            var group = clientSMs
+                .Where(c => (c.DateMessage >= dateStart && c.DateMessage <= dateEnd))
+                .GroupBy(c => c.Telephone).Select(g =>
+                new
+                {
+                    Telephone = g.Key,
+                    CountVote = g.Count()
+                }
+                ).OrderByDescending(g => g.CountVote)
+                .Take(10)
+                .ToList();
+             
+                while(winers.Count != 3)
+            {
+                var rnd = new Random();
+                var SelectedGroup = group.OrderBy(x => rnd.Next()).Take(1);
+                var selectedWinner = SelectedGroup.Select(g => g.Telephone).First();
+                if (!winers.Any(c => c == selectedWinner) ) winers.Add(selectedWinner);
+            }
+
+
+            return winers;
+        }
+    
+    }
+
 }
