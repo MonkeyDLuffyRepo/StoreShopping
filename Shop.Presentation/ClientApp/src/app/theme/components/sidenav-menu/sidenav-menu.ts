@@ -2,7 +2,7 @@ import { SidenavMenu } from './sidenav-menu.model';
 
 export const sidenavMenuItems = [
     new SidenavMenu(1, 'Home', '/', null, null, false, 0),
-    new SidenavMenu(61, 'All products', '/products', null, null, false, 0),
+    new SidenavMenu(61, 'All products', '/products', null, null, false, 0)
     // new SidenavMenu (2, 'Fashion', null, null, null, true, 0), 
     //new SidenavMenu(10, 'Women', null, null, null, true, 2),
     //new SidenavMenu(11, 'Dresses & Skirts', '/products/dresses & skirts', null, null, false, 10),

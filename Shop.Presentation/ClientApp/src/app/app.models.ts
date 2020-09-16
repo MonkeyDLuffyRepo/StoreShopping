@@ -28,7 +28,7 @@ export class Product {
 
 export class Image {
     constructor(
-        public reference: Guid,
+        public reference: string,
         public preview: string
         ) { }
 }
